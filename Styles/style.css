@@ -1,80 +1,279 @@
-/* styles.css */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f8f8f8;
+.carousel {
+  display: flex;
+  height: 910px;
+  width: 100%;
+  background: linear-gradient(135deg, #EBEBDF 50%, #191265 50%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.cards-upward {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 155%;
+  position: absolute;
+  left: 11%;
+  z-index: 1;
+}
+
+.cards-downward {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 150%;
+  position: absolute;
+  top: 0;
+  left: 45%;
+  z-index: 0;
+  margin-left: -10%;
+}
+
+.cards-downward {
+  left: 45%;
+  margin-left: -5%;
+}
+
+.card, .card.opposite {
+  width: 300px;
+  height: 450px;
+  background-color: #EBEBDF;
+  color: white;
+  border-radius: 8px;
+  position: absolute;
+  opacity: 1;
+  visibility: hidden;
+  overflow: hidden;
+  transform: rotate(45deg);
+}
+
+.card img, .card.opposite img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: rotate(270deg) translateX(-10%);
+  background-size: cover;
+}
+
+@keyframes moveCard {
+  0% {
+    transform: rotate(45deg) translate(0vw, 180vh);
+    opacity: 1;
+    visibility: visible;
   }
-  
-  .parent {
-    position: relative;
-    width: 100%;
-    height: 100%;
+  20% {
+    opacity: 1;
+    visibility: visible;
   }
-  
-  .card {
-    width: 100px;
+  80% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    transform: rotate(45deg) translate(0vw, -100vh);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes moveCardOpposite {
+  0% {
+    transform: rotate(45deg) translate(0vw, -100vh);
+    opacity: 1;
+    visibility: visible;
+  }
+  20% {
+    opacity: 1;
+    visibility: visible;
+  }
+  80% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    transform: rotate(45deg) translate(0vw, 180vh);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.cards-upward .card:nth-child(1) { animation: moveCard 8s linear infinite; animation-delay: 0s; }
+.cards-upward .card:nth-child(2) { animation: moveCard 8s linear infinite; animation-delay: 2s; }
+.cards-upward .card:nth-child(3) { animation: moveCard 8s linear infinite; animation-delay: 4s; }
+.cards-upward .card:nth-child(4) { animation: moveCard 8s linear infinite; animation-delay: 6s; }
+.cards-upward .card:nth-child(5) { animation: moveCard 8s linear infinite; animation-delay: 8s; }
+.cards-upward .card:nth-child(6) { animation: moveCard 8s linear infinite; animation-delay: 10s; }
+.cards-upward .card:nth-child(7) { animation: moveCard 8s linear infinite; animation-delay: 12s; }
+.cards-upward .card:nth-child(8) { animation: moveCard 8s linear infinite; animation-delay: 14s; }
+.cards-upward .card:nth-child(9) { animation: moveCard 8s linear infinite; animation-delay: 16s; }
+
+.cards-downward .card.opposite:nth-child(1) { animation: moveCardOpposite 8s linear infinite; animation-delay: 0s; }
+.cards-downward .card.opposite:nth-child(2) { animation: moveCardOpposite 8s linear infinite; animation-delay: 2s; }
+.cards-downward .card.opposite:nth-child(3) { animation: moveCardOpposite 8s linear infinite; animation-delay: 4s; }
+.cards-downward .card.opposite:nth-child(4) { animation: moveCardOpposite 8s linear infinite; animation-delay: 6s; }
+.cards-downward .card.opposite:nth-child(5) { animation: moveCardOpposite 8s linear infinite; animation-delay: 8s; }
+.cards-downward .card.opposite:nth-child(6) { animation: moveCardOpposite 8s linear infinite; animation-delay: 10s; }
+.cards-downward .card.opposite:nth-child(7) { animation: moveCardOpposite 8s linear infinite; animation-delay: 12s; }
+.cards-downward .card.opposite:nth-child(8) { animation: moveCardOpposite 8s linear infinite; animation-delay: 14s; }
+.cards-downward .card.opposite:nth-child(9) { animation: moveCardOpposite 8s linear infinite; animation-delay: 16s; }
+
+.navbar {
+  position: fixed;
+  font-family: monospace;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.transparent-navbar {
+  background: linear-gradient(135deg, #EBEBDF 69.9%, #19126579 31.1%) !important;
+  box-shadow: none;
+}
+
+.navbar-brand {
+  font-size: 55px;
+  padding-left: 2%;
+}
+
+.navbar-nav .nav-link {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #EBEBDF;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: aqua;
+}
+
+#content {
+  height: auto;
+  padding: 20px;
+  background-color: #EBEBDF;
+  color: #232F3E;
+  position: relative;
+  z-index: 2;
+  margin-top: 910px;
+}
+
+.custom-main-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.custom-main-card:hover {
+  transform: scale(1.05);
+}
+
+.custom-card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.custom-card-body {
+  padding: 20px;
+}
+
+.custom-card-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #191265;
+  margin-bottom: 10px;
+}
+
+.custom-main-card .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.custom-main-card .col-3 {
+  padding: 10px;
+}
+
+.custom-main-card .col-3 img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  transition: transform 0.3s ease;
+}
+
+.custom-main-card .col-3 img:hover {
+  transform: scale(1.1);
+}
+
+.custom-main-card .col-3 p {
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+}
+
+.custom-main-card .btn {
+  display: block;
+  width: 100%;
+  margin-top: 15px;
+  text-align: center;
+  background-color: #33b5ff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.custom-main-card .btn:hover {
+  background-color: #191265;
+}
+
+@media (max-width: 767px) {
+  #content h1 {
+    font-size: 28px;
+  }
+
+  .custom-main-card {
+    margin-bottom: 20px;
+  }
+
+  .custom-card-img-top {
     height: 150px;
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    line-height: 150px;
-    border-radius: 8px;
-    transform: rotate(45deg); /* Rotate the card 45 degrees */
-    position: absolute;
-    animation: moveCard 10s linear forwards infinite;
-  }
-  
-  /* The first card starts immediately */
-  .card:nth-child(1) {
-    animation-delay: 0s;
-  }
-  
-  /* The second card starts 1 second later */
-  .card:nth-child(2) {
-    animation-delay: 1s;
-  }
-  
-  /* The third card starts 2 seconds later */
-  .card:nth-child(3) {
-    animation-delay: 2s;
-  }
-  
-  .card:nth-child(4) {
-    animation-delay: 3s;
   }
 
-  .card:nth-child(5) {
-    animation-delay: 4s;
+  .custom-main-card .col-3 {
+    flex: 0 0 48%;
+    margin-bottom: 15px;
   }
 
-  .card:nth-child(6) {
-    animation-delay: 5s;
+  .custom-main-card .col-3 img {
+    height: 80px;
   }
+}
 
-  .card:nth-child(7) {
-    animation-delay: 6s;
-  }
 
-  .card:nth-child(8) {
-    animation-delay: 7s;
+/* Mobile and Tablet - Hide cards */
+@media (max-width: 991px) { 
+  .cards-upward, .cards-downward {
+    display: none; /* Hide cards on mobile and tablet */
   }
+}
 
-  .card:nth-child(9) {
-    animation-delay: 7s;
+/* Optional: You can use this media query to specifically target smaller screens if needed */
+@media (max-width: 576px) {
+  .cards-upward, .cards-downward {
+    display: none; /* Hide cards on very small screens (extra small devices) */
   }
-  /* Continue for more cards as needed */
-  
-  /* Keyframe animation for moving the cards */
-  @keyframes moveCard {
-    0% {
-      transform: rotate(45deg) translate(0vh, 100vw); /* Start position */
-    }
-    100% {
-      transform: rotate(45deg) translate(-20vw, -100vh); /* End position */
-    }
-  }
-  
+}
