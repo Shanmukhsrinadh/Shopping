@@ -1,3 +1,9 @@
+body {
+  font-family: monospace;
+  background-color: #f5f5f5;
+  padding: 50px;
+}
+
 .carousel {
   display: flex;
   height: 910px;
@@ -264,16 +270,62 @@
 }
 
 
-/* Mobile and Tablet - Hide cards */
 @media (max-width: 991px) { 
   .cards-upward, .cards-downward {
-    display: none; /* Hide cards on mobile and tablet */
+    display: none; 
   }
 }
 
-/* Optional: You can use this media query to specifically target smaller screens if needed */
 @media (max-width: 576px) {
   .cards-upward, .cards-downward {
-    display: none; /* Hide cards on very small screens (extra small devices) */
+    display: none; 
   }
+}
+
+.carousel h1 {
+  color: #191265;
+  font-size: 60px; 
+  text-align: center; 
+  margin-top: 20px; 
+  position: absolute; 
+  top: 36%; 
+  left: 20%; 
+  transform: translate(-50%, -50%); 
+  z-index: 99; 
+}
+
+}
+
+h1 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h1 span {
+  color: #BD53ED;
+  position: relative;
+}
+
+h1 span::before {
+  content: "";
+  height: 50px;
+  width: 5px;
+  position: absolute;
+  top: 50%;
+  right: -8px;
+  background: #BD53ED;
+  transform: translateY(-45%);
+  animation: blink 0.7s infinite;
+}
+
+h1 span.stop-blinking::before {
+  animation: none;
+}
+
+@keyframes blink {
+  50% { opacity: 0 }
+}
+.stop-blinking {
+  border-right: none;
 }
